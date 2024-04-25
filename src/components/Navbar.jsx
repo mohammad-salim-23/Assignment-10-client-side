@@ -1,6 +1,11 @@
+// primary color :#249898
 import { Link } from 'react-router-dom';
 import icon from '../../images/websiteIcon.jpg';
+import { useContext } from 'react';
+import { AuthContext } from './AuthProvider';
+import Swal from 'sweetalert2'
 const Navbar = () => {
+  const {user,logOut} = useContext(AuthContext);
   const navLinks = <>
     <div className='font-bold md:flex'>
     <li><Link to="/">Home</Link></li>
@@ -9,6 +14,19 @@ const Navbar = () => {
      <li><Link to="/myCraft">My Craft List</Link></li>
     </div>
   </>
+  const handleLogOut=()=>{
+    logOut()
+    .then(res=>{
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "LogOut successfully",
+        showConfirmButton: false,
+        timer: 2000
+      });
+    })
+    .catch()
+  }
   return (
     <div className='pl-5 pr-5'>
       <div className="navbar bg-base-100">
@@ -31,8 +49,15 @@ const Navbar = () => {
     {navLinks}
     </ul>
   </div>
-  <div className="navbar-end">
-    <a className="btn">Button</a>
+  <div className="navbar-end flex gap-2">
+  {
+      user?'':<Link to='/signup'><button className='btn font-bold' style={{backgroundColor:'#FFA500'}}> SignUp</button></Link>
+    }
+    {
+      user?<Link><button onClick={handleLogOut}>SignOut</button></Link>: <Link to='/signin'><button className='btn font-bold' style={{ backgroundColor: '#249898' }}>SignIn</button></Link>
+    }
+   
+  
   </div>
 </div>
     </div>

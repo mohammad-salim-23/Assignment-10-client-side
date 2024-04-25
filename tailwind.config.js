@@ -6,7 +6,11 @@ export default {
   ],
 
   theme: {
-    extend: {},
+    extend: {
+      colors:{
+        primary:'#249898'
+      }
+    },
   },
   plugins: [require("daisyui")],
 }
