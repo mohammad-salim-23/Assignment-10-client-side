@@ -11,7 +11,9 @@ const Navbar = () => {
     <li><Link to="/">Home</Link></li>
      <li><Link to="/allArt">All Items</Link></li>
      <li><Link to="/addCraft">Add Craft Items</Link></li>
-     <li><Link to="/myCraft">My Craft List</Link></li>
+     <li><Link to="/Craft">My Craft List</Link></li>
+     <li><Link to="/contact">Contact Us</Link></li>
+     <li><Link to="/glance">At a Glance Creations</Link></li>
     </div>
   </>
   const handleLogOut=()=>{
@@ -25,7 +27,7 @@ const Navbar = () => {
         timer: 2000
       });
     })
-    .catch()
+    .catch();
   }
   return (
     <div className='pl-5 pr-5'>
@@ -50,11 +52,13 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end flex gap-2">
-  {
-      user?'':<Link to='/signup'><button className='btn font-bold' style={{backgroundColor:'#FFA500'}}> SignUp</button></Link>
-    }
     {
-      user?<Link><button onClick={handleLogOut}>SignOut</button></Link>: <Link to='/signin'><button className='btn font-bold' style={{ backgroundColor: '#249898' }}>SignIn</button></Link>
+      user?"":<Link><button className='btn 'style={{ backgroundColor: '#e57b12'
+    }}>SignUp</button></Link>
+    }
+  
+    {
+      user?<Link><button className='btn  btn-warning'  onClick={handleLogOut}>SignOut</button></Link>: <Link to='/signin'><button className='btn font-bold' style={{ backgroundColor: '#249898' }}>SignIn</button></Link>
     }
    
   

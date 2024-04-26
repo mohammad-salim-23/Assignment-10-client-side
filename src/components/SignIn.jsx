@@ -114,7 +114,7 @@ const SignIn = () => {
         <button className="btn bg-slate-500" onClick={handleGithubLogin}>GitHub Login</button>
             </div>
             </form>
-            <p className="text-center mb-2">Do not have an account <Link className="text-blue-700 font-bold" to="/register">Register</Link></p>
+            <p className="text-center mb-2">Do not have an account <Link className="text-blue-700 font-bold" to="/signup">Register</Link></p>
           </div>
         </div>
    

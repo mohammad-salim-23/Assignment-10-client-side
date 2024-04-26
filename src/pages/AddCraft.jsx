@@ -10,12 +10,12 @@ const AddCraft = () => {
         const price = form.price.value;
         const details = form.details.value;
         const photo = form.photo.value;
-        const email = form.email.value;
-        const stock = form.stock.value;
-        const userName = form.userName.value;
+        // const email = form.email.value;
+        // const stock = form.stock.value;
+        // const userName = form.userName.value;
 
         const newCraft = {
-            name,time,subcategory,rating,price,details,photo,email,stock,userName
+            name,time,subcategory,rating,price,details,photo,
         };
         console.log(newCraft);
         fetch(`http://localhost:5000/craft`,{
@@ -131,8 +131,8 @@ const AddCraft = () => {
           </div>
         </div>
         {/* form Photo url row */}
-        <div className="mb-8">
-          <div className="form-control w-full">
+        <div className="mb-8 md:flex">
+          <div className="form-control md:w-1/2">
             <label className="label">
               <span className="label-text">Photo URL</span>
             </label>
@@ -144,9 +144,8 @@ const AddCraft = () => {
                 className="input input-bordered w-full"
               />
             </label>
-          </div>
-        </div>
-        <div className="form-control md:w-1/2 ml-4">
+            </div>
+            <div className="form-control md:w-1/2 ml-4">
             <label className="label">
               <span className="label-text">stockStatus</span>
             </label>
@@ -159,7 +158,11 @@ const AddCraft = () => {
               />
             </label>
           </div>
-          <div className="form-control md:w-1/2 ml-4">
+          
+        </div>
+       
+        <div className="mb-8 md:flex"> 
+        <div className="form-control md:w-1/2 ml-4">
             <label className="label">
               <span className="label-text">User Email</span>
             </label>
@@ -185,6 +188,7 @@ const AddCraft = () => {
               />
             </label>
           </div>
+        </div>
 
 
         <input  type="submit" value="Add Craft" className="btn btn-block bg-primary" />

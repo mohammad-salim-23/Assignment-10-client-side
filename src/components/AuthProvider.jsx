@@ -1,5 +1,5 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
-import { createContext, useState } from "react";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase.config";
 import { GoogleAuthProvider } from "firebase/auth";
 import { GithubAuthProvider } from "firebase/auth";
@@ -29,6 +29,22 @@ const githubSignIn = () =>{
     setLoading(true);
     return signInWithPopup(auth,GitHubProvider)
 }
+useEffect(()=>{
+    const unSubscribe = onAuthStateChanged(auth,currentUser=>{
+        if (currentUser) {
+            // Update user's display name if it exists
+            if (currentUser.displayName !== user?.displayName) {
+                setUser(currentUser);
+            }
+        } else {
+            setUser(null);
+        }
+      setLoading(false);
+    })
+    return ()=>{
+        unSubscribe();
+    }
+},[user])
     const authInfo = {
    user,
    createUser,

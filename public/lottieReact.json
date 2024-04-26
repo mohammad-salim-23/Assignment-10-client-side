@@ -1,0 +1,23 @@
+[
+    {
+      "title": "Sunset Landscape",
+      "imageUrl": "https://example.com/sunset-landscape.jpg"
+    },
+    {
+      "title": "Portrait of a Woman",
+      "imageUrl": "https://example.com/portrait-woman.jpg"
+    },
+    {
+      "title": "Still Life with Flowers",
+      "imageUrl": "https://example.com/still-life-flowers.jpg"
+    },
+    {
+      "title": "Abstract Artwork",
+      "imageUrl": "https://example.com/abstract-artwork.jpg"
+    },
+    {
+      "title": "Cityscape Sketch",
+      "imageUrl": "https://example.com/cityscape-sketch.jpg"
+    }
+  ]
+  
