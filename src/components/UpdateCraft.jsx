@@ -1,6 +1,8 @@
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 const UpdateCraft = () => {
+    const craft = useLoaderData();
+    const {name,time,subcategory,rating,price,details,photo,_id,email,stock,userName} = craft;
     const handleUpdateCraft = e=>{
         e.preventDefault();
         const form = e.target;
@@ -11,8 +13,11 @@ const UpdateCraft = () => {
         const price = form.price.value;
         const details = form.details.value;
         const photo = form.photo.value;
+        const email = form.email.value;
+        const stock = form.stock.value;
+        const userName = form.userName.value;
         const UpdateCraft = {
-            name,time,subcategory,rating,price,details,photo
+            name,time,subcategory,rating,price,details,photo,email,stock,userName
         };
         // send data to the server
         fetch(`http://localhost:5000/craft/${_id}`,{
@@ -35,8 +40,7 @@ const UpdateCraft = () => {
               }
         })
     }
-    const craft = useLoaderData();
-    const {name,time,subcategory,rating,price,details,photo,_id} = craft;
+   
     return (
         <div>
         <div className="bg-[#F4F3F0] p-24">
@@ -144,6 +148,45 @@ const UpdateCraft = () => {
           />
         </label>
       </div>
+      <div className="form-control md:w-1/2 ml-4">
+            <label className="label">
+              <span className="label-text">stockStatus</span>
+            </label>
+            <label className="input-group">
+              <input
+                type="text"
+                name="stock"
+                placeholder="Stock Status"
+                className="input input-bordered w-full"
+              />
+            </label>
+          </div>
+          <div className="form-control md:w-1/2 ml-4">
+            <label className="label">
+              <span className="label-text">User Email</span>
+            </label>
+            <label className="input-group">
+              <input
+                type="email"
+                name="email"
+                placeholder="User Email"
+                className="input input-bordered w-full"
+              />
+            </label>
+          </div>
+          <div className="form-control md:w-1/2 ml-4">
+            <label className="label">
+              <span className="label-text">User Name</span>
+            </label>
+            <label className="input-group">
+              <input
+                type="text"
+                name="userName"
+                placeholder="User Name"
+                className="input input-bordered w-full"
+              />
+            </label>
+          </div>
     </div>
     <input  type="submit" value="Update Craft" className="btn btn-block bg-primary" />
   </form>

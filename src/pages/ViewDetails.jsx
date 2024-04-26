@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 
 const ViewDetails = () => {
     const craft = useLoaderData();
-    const {name,time,subcategory,rating,price,details,photo,_id} = craft;
+    const {name,time,subcategory,rating,price,details,photo,_id,email,stock,userName} = craft;
 
     return (
         <div className="flex justify-centercenter items-center gap-4">
@@ -16,6 +16,7 @@ const ViewDetails = () => {
                <p>{details}</p>
                <h2>Processing Time: {time}</h2>
                <h3>Rating: {rating}</h3>
+               <h2 className="text-gray-400">stockStatus: {stock}</h2>
                <h2 className="font-bold">Price: {price}</h2>
             </div>
             
