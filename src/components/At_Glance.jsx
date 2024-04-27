@@ -1,6 +1,5 @@
-import React from "react";
-import { useLottie } from "lottie-react";
 
+import { useLottie } from "lottie-react";
 
 const At_Glance = () => {
     

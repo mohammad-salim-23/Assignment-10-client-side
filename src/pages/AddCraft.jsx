@@ -10,12 +10,12 @@ const AddCraft = () => {
         const price = form.price.value;
         const details = form.details.value;
         const photo = form.photo.value;
-        // const email = form.email.value;
-        // const stock = form.stock.value;
-        // const userName = form.userName.value;
+        const email = form.email.value;
+        const stock = form.stock.value;
+        const userName = form.userName.value;
 
         const newCraft = {
-            name,time,subcategory,rating,price,details,photo,
+            name,time,subcategory,rating,price,details,photo,email,stock,userName
         };
         console.log(newCraft);
         fetch(`http://localhost:5000/craft`,{

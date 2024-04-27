@@ -37,7 +37,12 @@ const SignIn = () => {
         e.preventDefault();
         googleSignIn()
         .then(result=>{
-            alert("Successfully Login")
+          Swal.fire({
+            title: 'Success!',
+            text: 'Do you want to continue',
+            icon: 'success',
+            confirmButtonText: 'Cool'
+          })
             navigate(location?.state ? location.state:"/");
         })
         .catch(error=>{
@@ -49,12 +54,14 @@ const SignIn = () => {
         e.preventDefault();
         GithubSignIn()
         .then(()=>{
-            Swal.fire({
-                title: 'Success!',
-                text: 'Do you want to continue',
-                icon: 'success',
-                confirmButtonText: 'Cool'
-              })
+          Swal.fire({
+            title: 'Success!',
+            text: 'Do you want to continue',
+            icon: 'success',
+            confirmButtonText: 'Cool'
+          })
+          navigate(location?.state ? location.state:"/");
+           
         })
         .catch(()=>{
             Swal.fire({

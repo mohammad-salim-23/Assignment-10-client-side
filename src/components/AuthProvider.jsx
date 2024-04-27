@@ -25,7 +25,7 @@ const googleSignIn= ()=>{
     setLoading(true);
     return signInWithPopup(auth,GoogleProvider);
 }
-const githubSignIn = () =>{
+const GithubSignIn = () =>{
     setLoading(true);
     return signInWithPopup(auth,GitHubProvider)
 }
@@ -51,7 +51,8 @@ useEffect(()=>{
    signInUser,
    logOut,
    googleSignIn,
-   githubSignIn
+   GithubSignIn,
+   loading
 
 
     }

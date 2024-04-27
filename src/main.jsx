@@ -19,6 +19,7 @@ import ViewDetails from './pages/ViewDetails.jsx';
 import UpdateCraft from './components/UpdateCraft.jsx';
 import ContactUs from './pages/ContactUs.jsx';
 import At_Glance from './components/At_Glance.jsx';
+import PrivateRoute from './components/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -34,15 +35,16 @@ const router = createBrowserRouter([
      
       {
         path:'/allArt',
-        element:<Allitems></Allitems>,
+        element:<PrivateRoute><Allitems></Allitems></PrivateRoute>,
+        loader:()=>fetch(`http://localhost:5000/craft`)
       },
       {
         path:'/addCraft',
-        element:<AddCraft></AddCraft>,
+        element:<PrivateRoute><AddCraft></AddCraft></PrivateRoute>,
       },
       {
         path:'/Craft',
-        element:<MyCraftList></MyCraftList>
+        element:<PrivateRoute><MyCraftList></MyCraftList></PrivateRoute>
       },
       {
         path:'/signin',
@@ -62,7 +64,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/details/:id',
-        element:<ViewDetails></ViewDetails>,
+        element:<PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
         loader :({params})=>fetch(`http://localhost:5000/craft/${params.id}`)
 
   },

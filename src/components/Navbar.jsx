@@ -54,13 +54,13 @@ const Navbar = () => {
 
   return (
     <div className='md:pl-5 md:pr-5'> {/* Apply dark mode class */}
-      <div className={`navbar ${darkMode ? "dark" : ""}`}> {/* Apply dark mode class */}
+      <div className="navbar">
         <div className="navbar-start">
           <div className="dropdown">
             <div
               tabIndex={0}
               role="button"
-              className="btn btn-ghost lg:hidden"
+              className="btn btn-ghostmd:hidden lg:hidden"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
