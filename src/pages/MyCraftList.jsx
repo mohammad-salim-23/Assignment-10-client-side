@@ -2,12 +2,11 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../components/AuthProvider";
 import MyCraftListCard from "../components/MyCraftListCard";
 
-
 const MyCraftList = () => {
-    const {user} = useContext(AuthContext);
-    console.log(user);
-    const [crafts,setCrafts] = useState([]);
-    // /myCraft/:email
+    const { user } = useContext(AuthContext);
+    const [crafts, setCrafts] = useState([]);
+    const [filter, setFilter] = useState("All");
+
     useEffect(() => {
         if (user?.email) { 
             fetch(`http://localhost:5000/myCraft/${user?.email}`) 
@@ -17,19 +16,36 @@ const MyCraftList = () => {
                 });
         }
     }, [user?.email]); 
-    console.log(crafts);
+
+    const filteredCrafts = filter === "All" ? crafts : crafts.filter(craft => craft.customization === filter);
+
     return (
         <div>
-            {
-                  crafts.map(craft=><MyCraftListCard
-                  key={craft._id}
-                  craft={craft}
-                  crafts = {crafts}
-                  setCrafts= {setCrafts}
-                  ></MyCraftListCard>)
-            }
+            <div className="flex justify-between">
+                <div>
+                    <label className="text-xl font-bold text-center" htmlFor="customization">Filter by Customization: </label>
+                    <select
+                        id="customization"
+                        value={filter}
+                        onChange={(e) => setFilter(e.target.value)}
+                    >
+                        <option value="All">All</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2">
+                {filteredCrafts.map(craft => (
+                    <MyCraftListCard
+                        key={craft._id}
+                        craft={craft}
+                        crafts={crafts}
+                        setCrafts={setCrafts}
+                    />
+                ))}
+            </div>
         </div>
-
     );
 };
 

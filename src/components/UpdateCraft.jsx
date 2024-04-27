@@ -2,7 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 const UpdateCraft = () => {
     const craft = useLoaderData();
-    const {name,time,subcategory,rating,price,details,photo,_id,email,stock,userName} = craft;
+    const {name,time,subcategory,rating,price,details,photo,_id,email,stock,userName,customization} = craft;
     const handleUpdateCraft = e=>{
         e.preventDefault();
         const form = e.target;
@@ -16,8 +16,9 @@ const UpdateCraft = () => {
         const email = form.email.value;
         const stock = form.stock.value;
         const userName = form.userName.value;
+        const customization = form.customization.value;
         const UpdateCraft = {
-            name,time,subcategory,rating,price,details,photo,email,stock,userName
+            name,time,subcategory,rating,price,details,photo,email,stock,userName,customization
         };
         // send data to the server
         fetch(`http://localhost:5000/craft/${_id}`,{
@@ -187,6 +188,22 @@ const UpdateCraft = () => {
               />
             </label>
           </div>
+          <div>
+        <div className="form-control md:w-1/2 ml-4">
+            <label className="label">
+              <span className="label-text">Customization</span>
+            </label>
+            <label className="input-group">
+              <input
+                type="text"
+                name="customization"
+                placeholder="Customization"
+                className="input input-bordered w-full"
+              />
+            </label>
+          </div>
+        </div>
+
     </div>
     <input  type="submit" value="Update Craft" className="btn btn-block bg-primary" />
   </form>

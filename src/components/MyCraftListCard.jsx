@@ -40,7 +40,7 @@ const MyCraftListCard = ({craft,crafts,setCrafts}) => {
             }
           });
     }
-    const {name,time,subcategory,rating,price,details,photo,_id} = craft;
+    const {name,time,subcategory,rating,price,details,photo,_id,email,stock,userName,customization} = craft;
     return (
         <div>
         <div className="card w-96 bg-base-100 shadow-xl">

@@ -1,27 +1,36 @@
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../components/AuthProvider";
+
+import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import SubCategoryCard from "./SubCategoryCard";
 
 const SubCategory = () => {
    
     const craft = useLoaderData();
     const {name,time,subcategory,rating,price,details,photo,_id,email,stock,userName} = craft;
+    console.log(craft)
     
-    const [crafts,setCrafts] = useState([]);
+    
+     
    
-    useEffect(() => {
-        if (subcategory) { 
-            fetch(`http://localhost:5000/sub/${subcategory}`) 
-                .then(res => res.json()) 
-                .then(data => { 
-                    setCrafts(data); 
-                });
-        }
-    }, [subcategory]); 
-    console.log(crafts)
+    //  useEffect(() => {
+    //     if (subcategory) { 
+    //         fetch(`http://localhost:5000/sub/${subcategory}`) 
+    //             .then(res => res.json()) 
+    //             .then(data => { 
+    //                 setCrafts(data); 
+    //             });
+    //     }
+    // }, [subcategory]); 
+    // console.log(crafts)
     return (
-        <div>
-          <h3>Salim Ali card</h3>  
+        <div className="grid md:grid-cols-2">
+         {
+            craft.map(craft=><SubCategoryCard
+            key={craft._id}
+            craft={craft}
+            ></SubCategoryCard>)
+         }
+           
         </div>
     );
 };

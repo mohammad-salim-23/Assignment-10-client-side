@@ -76,8 +76,8 @@ const router = createBrowserRouter([
       },
       {
         path:'/sub/:subcategory',
-        element:<SubCategory></SubCategory>,
-        loader :({params})=>fetch(`http://localhost:5000/craft/${params.subcategory}`)
+        element:<SubCategory/>,
+        loader :({params})=>fetch(`http://localhost:5000/sub/${params.subcategory}`)
       
 
       }
