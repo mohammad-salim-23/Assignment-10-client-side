@@ -20,6 +20,7 @@ import UpdateCraft from './components/UpdateCraft.jsx';
 import ContactUs from './pages/ContactUs.jsx';
 import At_Glance from './components/At_Glance.jsx';
 import PrivateRoute from './components/PrivateRoute.jsx';
+import SubCategory from './pages/SubCategory.jsx';
 
 const router = createBrowserRouter([
   {
@@ -73,6 +74,13 @@ const router = createBrowserRouter([
         element:<UpdateCraft></UpdateCraft>,
         loader:({params})=>fetch(`http://localhost:5000/craft/${params.id}`)
       },
+      {
+        path:'/sub/:subcategory',
+        element:<SubCategory></SubCategory>,
+        loader :({params})=>fetch(`http://localhost:5000/craft/${params.subcategory}`)
+      
+
+      }
      
     ]
   },

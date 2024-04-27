@@ -41,6 +41,7 @@ const CraftCard = ({craft,crafts,setCrafts}) => {
           });
     }
     return (
+      <Link to={`sub/${subcategory}`}>
         <div>
             <div className="card w-96 bg-base-100 shadow-xl">
   <figure><img src={photo} alt="Shoes" /></figure>
@@ -60,6 +61,7 @@ const CraftCard = ({craft,crafts,setCrafts}) => {
   </div>
 </div>
         </div>
+        </Link>
     );
 };
 
