@@ -41,7 +41,7 @@ const CraftCard = ({craft,crafts,setCrafts}) => {
           });
     }
     return (
-      <Link to={`sub/${subcategory}`}>
+      <Link to={`sub/${String(subcategory)?.toLowerCase().split(' ').join('-')}`}>
         <div>
             <div className="card w-96 bg-base-100 shadow-xl">
   <figure><img src={photo} alt="Shoes" /></figure>
