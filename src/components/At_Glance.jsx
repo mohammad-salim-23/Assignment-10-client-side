@@ -1,8 +1,11 @@
+import React from "react";
+import { useLottie } from "lottie-react";
 
-
-import animation from "../../public/lottieReact.json";
 
 const At_Glance = () => {
+    
+    
+
   const paintings = [
     {
       title: "Sunset Landscape",
@@ -25,17 +28,24 @@ const At_Glance = () => {
       imageUrl: "https://img.freepik.com/free-vector/picturesque-cityscape_23-2147555336.jpg?t=st=1714160899~exp=1714164499~hmac=ec5ec5c0aa700a706c352a0a8c4b85d68692ebb4d420f57fc72899726fe2119f&w=740",
     },
   ];
-
+  const options = {
+    // animationData:paintings ,
+    loop: true
+  };
+const { View } = useLottie(options);
   return (
-    <div>
-      {paintings.map((painting, index) => (
-        <div key={index}>
-          <h3 className="text-2xl font-bold mt-3 mb-3 text-center">{painting.title}</h3>
-        <div className="flex justify-center ">
-        <img src={painting.imageUrl} alt="" />
-        </div>
-        </div>
-      ))}
+    <div className="flex justify-center">
+      <div className="mr-5">{View}</div>
+      <div>
+        {paintings.map((painting, index) => (
+          <div key={index}>
+            <h3 className="text-2xl font-bold mt-3 mb-3 text-center">{painting.title}</h3>
+            <div className="flex justify-center">
+              <img src={painting.imageUrl} alt={painting.title} />
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
