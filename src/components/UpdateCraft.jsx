@@ -172,6 +172,7 @@ const UpdateCraft = () => {
                 name="email"
                 placeholder="User Email"
                 className="input input-bordered w-full"
+                required
               />
             </label>
           </div>
