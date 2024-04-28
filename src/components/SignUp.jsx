@@ -1,12 +1,14 @@
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Swal from 'sweetalert2'
-import { Link } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 
 
 
 import { AuthContext } from "./AuthProvider";
 const SignUp = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
     console.log("Salim")
   const { createUser } = useContext(AuthContext);
  const [show,setShow] = useState(false);
@@ -47,7 +49,7 @@ const SignUp = () => {
       alert("successfully Register")
           console.log(result.user);
        
-      
+          navigate('/signin');
       })
       .catch((error) => {
         console.error(error);

@@ -115,7 +115,7 @@ const Navbar = () => {
           {user ? (
             ""
           ) : (
-            <Link>
+            <Link to='/signup'>
               <button
                 className="btn "
                 style={{ backgroundColor: "#e57b12" }}
@@ -126,7 +126,7 @@ const Navbar = () => {
           )}
 
           {user ? (
-            <Link>
+            <Link >
               <button
                 className="btn  btn-warning"
                 onClick={handleLogOut}

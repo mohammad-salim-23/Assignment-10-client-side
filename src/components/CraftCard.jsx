@@ -52,7 +52,7 @@ const CraftCard = ({craft,crafts,setCrafts}) => {
 
     <div className="card-actions justify-end">
     <div className="join flex gap-3">
-  <Link to={`details/${_id}`}> <button className="btn  bg-primary">View Details</button></Link>
+  <Link to={`/details/${_id}`}> <button className="btn  bg-primary">View Details</button></Link>
  
   <Link to={`updateCraft/${_id}`}><button className="btn ">Update</button></Link>
   <button onClick={()=>handleDelete(_id)} className="btn  btn-warning">Delete</button>
