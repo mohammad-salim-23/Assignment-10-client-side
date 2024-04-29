@@ -29,7 +29,7 @@ const SubCategoryCard = ({craft}) => {
   <Link to={`/details/${_id}`}> <button className="btn  bg-primary">View Details</button></Link>
  
   <Link to={`/updateCraft/${_id}`}><button className="btn ">Update</button></Link>
-  <button onClick={()=>handleDelete(_id)} className="btn  btn-warning">Delete</button>
+  {/* <button onClick={()=>handleDelete(_id)} className="btn  btn-warning">Delete</button> */}
 </div>
     </div>
   </div>

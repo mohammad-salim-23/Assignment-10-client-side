@@ -4,6 +4,7 @@ import { useLoaderData } from "react-router-dom";
 const ViewDetails = () => {
     const craft = useLoaderData();
     const {name,time,subcategory,rating,price,details,photo,_id,email,stock,userName} = craft;
+    console.log(craft);
 
     return (
         <div className="flex justify-centercenter items-center gap-4">

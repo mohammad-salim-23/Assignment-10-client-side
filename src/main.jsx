@@ -29,18 +29,14 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
         loader: () =>
-          fetch(
-            `https://assignment-10-server-site-md641tjht-salim-programmers-projects.vercel.app`
-          ),
+          fetch(`https://assignment-10-server-site-black.vercel.app/craft`),
       },
 
       {
         path: "/allArt",
         element: <Allitems></Allitems>,
         loader: () =>
-          fetch(
-            `https://assignment-10-server-site-md641tjht-salim-programmers-projects.vercel.app`
-          ),
+          fetch(`https://assignment-10-server-site-black.vercel.app/craft`),
       },
       {
         path: "/addCraft",
@@ -83,7 +79,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://assignment-10-server-site-md641tjht-salim-programmers-projects.vercel.app/${params.id}`
+            `https://assignment-10-server-site-black.vercel.app/craft/${params.id}`
           ),
       },
       {
@@ -91,7 +87,7 @@ const router = createBrowserRouter([
         element: <UpdateCraft></UpdateCraft>,
         loader: ({ params }) =>
           fetch(
-            `https://assignment-10-server-site-md641tjht-salim-programmers-projects.vercel.app/${params.id}`
+            `https://assignment-10-server-site-black.vercel.app/craft/${params.id}`
           ),
       },
       {

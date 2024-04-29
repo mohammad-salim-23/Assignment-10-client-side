@@ -17,12 +17,9 @@ const CraftCard = ({ craft, crafts, setCrafts }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(
-          `https://assignment-10-server-site-md641tjht-salim-programmers-projects.vercel.app/${_id}`,
-          {
-            method: "DELETE",
-          }
-        )
+        fetch(`https://assignment-10-server-site-black.vercel.app/${_id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
@@ -45,7 +42,7 @@ const CraftCard = ({ craft, crafts, setCrafts }) => {
       <div>
         <div className="card w-96 bg-base-100 shadow-xl">
           <figure>
-            <img src={photo} alt="Shoes" />
+            <img className="img-style" src={photo} alt="Shoes" />
           </figure>
           <div className="card-body">
             <h2 className="card-title">{name}</h2>

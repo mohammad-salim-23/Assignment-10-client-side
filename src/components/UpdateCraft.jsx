@@ -44,16 +44,13 @@ const UpdateCraft = () => {
       customization,
     };
     // send data to the server
-    fetch(
-      `https://assignment-10-server-site-md641tjht-salim-programmers-projects.vercel.app/${_id}`,
-      {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(UpdateCraft),
-      }
-    )
+    fetch(`https://assignment-10-server-site-black.vercel.app/craft/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(UpdateCraft),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

@@ -28,16 +28,13 @@ const AddCraft = () => {
       customization,
     };
     console.log(newCraft);
-    fetch(
-      `https://assignment-10-server-site-md641tjht-salim-programmers-projects.vercel.app`,
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(newCraft),
-      }
-    )
+    fetch(`https://assignment-10-server-site-black.vercel.app/craft`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newCraft),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
