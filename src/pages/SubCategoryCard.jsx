@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-
+import '../../src/components/All.css'
 import { Link } from "react-router-dom";
 const SubCategoryCard = ({craft}) => {
     const {item_name,time,subcategory,rating,price,details,image,_id,email,stock,userName} = craft;
@@ -18,17 +18,17 @@ const SubCategoryCard = ({craft}) => {
 </div> */}
    <div>
             <div className="card w-96 bg-base-100 shadow-xl">
-  <figure><img src={image} alt="Shoes" /></figure>
+  <figure><img className="img-style" src={image} alt="Shoes" /></figure>
   <div className="card-body">
     <h2 className="card-title">{item_name}</h2>
-    <h3 className="text-xl font-bold">SubCategory; {subcategory}</h3>
+    <h3 className="text-xl font-bold">SubCategory: {subcategory}</h3>
     
 
     <div className="card-actions justify-end">
     <div className="join flex gap-3">
  
  
-  <Link to={`/updateCraft/${_id}`}><button className="btn ">Update</button></Link>
+ 
   {/* <button onClick={()=>handleDelete(_id)} className="btn  btn-warning">Delete</button> */}
 </div>
     </div>

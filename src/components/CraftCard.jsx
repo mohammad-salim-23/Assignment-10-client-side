@@ -63,16 +63,8 @@ const CraftCard = ({ craft, crafts, setCrafts }) => {
                     <button className="btn  bg-primary">View Details</button>
                   </Link>
 
-                  <Link to={`updateCraft/${_id}`}>
-                    <button className="btn ">Update</button>
-                  </Link>
+                 
 
-                  <button
-                    onClick={() => handleDelete(_id)}
-                    className="btn  btn-warning"
-                  >
-                    Delete
-                  </button>
                 </div>
               </div>
             </div>

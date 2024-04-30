@@ -30,7 +30,7 @@ const SubCategory = () => {
   // }, [subcategory]);
   // console.log(crafts)
   return (
-    <div className="grid md:grid-cols-2">
+    <div className="grid md:grid-cols-2 gap-4 justify-center container mx-auto p-5">
       {craft.map((craft) => (
         <SubCategoryCard key={craft._id} craft={craft}></SubCategoryCard>
       ))}

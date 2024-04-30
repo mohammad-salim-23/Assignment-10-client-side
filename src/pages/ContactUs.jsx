@@ -1,8 +1,17 @@
 import { Fade } from "react-awesome-reveal";
 import icon from "../../images/websiteIcon.jpg"
 import LottieReact from "../components/LottieReact";
+import { useEffect, useState } from "react";
 
 const ContactUs = () => {
+  const [loading,setLoading] = useState(true);
+  useEffect(()=>{
+    const timer = setTimeout(()=>{
+      setLoading(false);
+    },2000);
+
+    return ()=>clearTimeout(timer);
+  },[])
     return (
       <div className="hero min-h-screen bg-base-200">
         <Fade cascade damping={0.3}>
