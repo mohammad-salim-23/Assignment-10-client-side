@@ -94,7 +94,9 @@ const router = createBrowserRouter([
         path: "/sub/:subcategory",
         element: <SubCategory />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/sub/${params.subcategory}`),
+          fetch(
+            `https://assignment-10-server-site-black.vercel.app/subs/${params.subcategory}`
+          ),
       },
     ],
   },

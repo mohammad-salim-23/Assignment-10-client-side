@@ -15,7 +15,7 @@ const MyCraftListCard = ({ craft, crafts, setCrafts }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://assignment-10-server-site-black.vercel.app/${_id}`, {
+        fetch(`https://assignment-10-server-site-black.vercel.app/craft/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -66,6 +66,12 @@ const MyCraftListCard = ({ craft, crafts, setCrafts }) => {
                 {" "}
                 <button className="btn  bg-primary">View Details</button>
               </Link>
+              <button
+                    onClick={() => handleDelete(_id)}
+                    className="btn  btn-warning"
+                  >
+                    Delete
+                  </button>
             </div>
           </div>
         </div>

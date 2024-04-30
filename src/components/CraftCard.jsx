@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+
 // eslint-disable-next-line react/prop-types
 const CraftCard = ({ craft, crafts, setCrafts }) => {
+  console.log("CRAFT ", craft);
   // eslint-disable-next-line react/prop-types
   const { name, time, subcategory, rating, price, details, photo, _id } = craft;
 
@@ -17,9 +19,12 @@ const CraftCard = ({ craft, crafts, setCrafts }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://assignment-10-server-site-black.vercel.app/${_id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://assignment-10-server-site-black.vercel.app/craft/${_id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
@@ -37,40 +42,45 @@ const CraftCard = ({ craft, crafts, setCrafts }) => {
       }
     });
   };
+
   return (
-    <Link to={`sub/${subcategory}`}>
-      <div>
-        <div className="card w-96 bg-base-100 shadow-xl">
-          <figure>
-            <img className="img-style" src={photo} alt="Shoes" />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">{name}</h2>
-            <h3 className="text-xl font-bold">SubCategory; {subcategory}</h3>
-            <p>Price : {price}</p>
+    <div>
+      <Link to={`sub/${craft?.subcategorySlug}`}>
+        <div>
+          <div className="card w-96 bg-base-100 shadow-xl">
+            <figure>
+              <img className="img-style" src={photo} alt="Shoes" />
+            </figure>
+            <div className="card-body">
+              <h2 className="card-title">{name}</h2>
+              <h3 className="text-xl font-bold">SubCategory: {subcategory}</h3>
+              <p>Price : {price}</p>
 
-            <div className="card-actions justify-end">
-              <div className="join flex gap-3">
-                <Link to={`/details/${_id}`}>
-                  {" "}
-                  <button className="btn  bg-primary">View Details</button>
-                </Link>
+              <div className="card-actions justify-end">
+                <div className="join flex gap-3">
+                  <Link to={`/details/${_id}`}>
+                    {" "}
+                    <button className="btn  bg-primary">View Details</button>
+                  </Link>
 
-                <Link to={`updateCraft/${_id}`}>
-                  <button className="btn ">Update</button>
-                </Link>
-                <button
-                  onClick={() => handleDelete(_id)}
-                  className="btn  btn-warning"
-                >
-                  Delete
-                </button>
+                  <Link to={`updateCraft/${_id}`}>
+                    <button className="btn ">Update</button>
+                  </Link>
+
+                  <button
+                    onClick={() => handleDelete(_id)}
+                    className="btn  btn-warning"
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+      <div></div>
+    </div>
   );
 };
 
